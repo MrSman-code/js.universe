@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uviverse</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+
+      .universe {
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+      }
+
+      .planet {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        position: absolute;
+      }
+
+      .moon {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      function createPlanet() {
+        const planet = document.createElement("div");
+        planet.className = "planet";
+        planet.style.backgroundColor = getRandomColor();
+        document.body.appendChild(planet);
+
+        createMoon(planet);
+      }
+
+      function createMoon(planet) {
+        const moon = document.createElement("div");
+        moon.className = "moon";
+        moon.style.backgroundColor = getRandomColor();
+        planet.appendChild(moon);
+      }
+
+      function getRandomColor() {
+        const letters = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      createPlanet();
+      createPlanet();
+      createPlanet();
+    </script>
+  </body>
+</html>
